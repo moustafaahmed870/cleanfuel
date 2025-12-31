@@ -3,7 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="دليل محطات الوقود الموثوقة في مصر - CleanFuel | زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
+    <!-- أضف هذا بعد <meta name="description"> مباشرة: -->
 
+<!-- Canonical URL -->
+<link rel="canonical" href="https://cleanfuel-egypt.com/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CleanFuel مصر",
+  "alternateName": "دليل محطات الوقود الموثوقة",
+  "description": "دليل محطات الوقود الموثوقة في جميع محافظات مصر",
+  "url": "https://cleanfuel-egypt.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://cleanfuel-egypt.com/#search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CleanFuel",
+  "description": "دليل محطات الوقود الموثوقة في مصر",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "EG",
+    "addressRegion": "جميع المحافظات"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "مصر"
+  }
+}
+</script>
 <!-- الكلمات المفتاحية -->
 <meta name="keywords" content="محطات وقود مصر, وقود نظيف, بنزين موثوق, محطات البنزين, جودة الوقود, cleanfuel مصر, محطات وقود موثوقة">
 
@@ -13,16 +55,14 @@
 <!-- Open Graph (للمشاركة على وسائل التواصل) -->
 <meta property="og:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
 <meta property="og:description" content="زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
-<meta property="og:image" content="https://YOUR_DOMAIN.com/cleanfuel-logo.png">
-<meta property="og:url" content="https://YOUR_DOMAIN.com">
-<meta property="og:type" content="website">
+<meta property="og:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">
+<meta property="og:url" content="https://clean-fuel.netlify.app"><meta property="og:type" content="website">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
 <meta name="twitter:description" content="دليل محطات الوقود الموثوقة في جميع محافظات مصر">
-<meta name="twitter:image" content="https://YOUR_DOMAIN.com/cleanfuel-logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleanFuel - تسجيل دخول المدير</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -260,5 +300,13 @@
             });
         });
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
 </body>
 </html>
