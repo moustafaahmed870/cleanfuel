@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanFuel - زوّد وانت مطمّن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <style>
+        .admin-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 15px;
+        }
+        
+        .admin-btn:hover {
+            background-color: #e68900;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* تحديث لشريط البحث ليتناسب مع الزر الجديد */
+        .header-search {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 500px;
+            min-width: 300px;
+        }
+        
+        /* تحسينات للاستجابة على الأجهزة الصغيرة */
+        @media (max-width: 992px) {
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+                margin-top: 15px;
+            }
+            
+            .admin-btn {
+                width: 100%;
+                justify-content: center;
+                margin-right: 0;
+            }
+            
+            .header-search {
+                max-width: 100%;
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .admin-btn {
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر مع شريط البحث -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <i class="fas fa-gas-pump logo-icon"></i>
+                    <div class="logo-text">
+                        <h1>CleanFuel</h1>
+                        <p>زوّد وانت مطمّن</p>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="admin-btn" onclick="window.location.href='login.html'">
+                        <i class="fas fa-user-shield"></i> دخول المدير
+                    </button>
+                    
+                    <!-- شريط البحث في الهيدر -->
+                    <div class="header-search">
+                        <div class="search-box">
+                            <select id="governorateSearch" class="search-select">
+                                <option value="">ابحث بالمحافظة...</option>
+                                <option value="القاهرة">القاهرة</option>
+                                <option value="الجيزة">الجيزة</option>
+                                <option value="الإسكندرية">الإسكندرية</option>
+                                <option value="الدقهلية">الدقهلية</option>
+                                <option value="البحر الأحمر">البحر الأحمر</option>
+                                <option value="البحيرة">البحيرة</option>
+                                <option value="الفيوم">الفيوم</option>
+                                <option value="الغربية">الغربية</option>
+                                <option value="الإسماعيلية">الإسماعيلية</option>
+                                <option value="المنوفية">المنوفية</option>
+                                <option value="المنيا">المنيا</option>
+                                <option value="القليوبية">القليوبية</option>
+                                <option value="الوادي الجديد">الوادي الجديد</option>
+                                <option value="السويس">السويس</option>
+                                <option value="اسوان">أسوان</option>
+                                <option value="اسيوط">أسيوط</option>
+                                <option value="بني سويف">بني سويف</option>
+                                <option value="بورسعيد">بورسعيد</option>
+                                <option value="دمياط">دمياط</option>
+                                <option value="الشرقية">الشرقية</option>
+                                <option value="جنوب سيناء">جنوب سيناء</option>
+                                <option value="كفر الشيخ">كفر الشيخ</option>
+                                <option value="مطروح">مطروح</option>
+                                <option value="الأقصر">الأقصر</option>
+                                <option value="قنا">قنا</option>
+                                <option value="شمال سيناء">شمال سيناء</option>
+                                <option value="سوهاج">سوهاج</option>
+                            </select>
+                            <button id="searchBtn" class="search-btn">
+                                <i class="fas fa-search"></i> بحث
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الترحيب -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">دليل محطات الوقود الموثوقة في مصر</h1>
+            <p class="hero-subtitle">
+                نوفر لك قائمة بالمحطات التي تم اختبار جودة وقودها للتأكد من عدم الغش. 
+                زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته.
+            </p>
+            <div style="margin-top: 30px; text-align: center;">
+                <button class="btn btn-accent" onclick="window.location.href='#stationsContainer'" style="font-size: 1.1rem;">
+                    <i class="fas fa-search"></i> ابدأ البحث عن المحطات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الرئيسي -->
+    <div class="container">
+        <!-- تنبيهات -->
+        <div id="alert" class="alert"></div>
+
+        <!-- إحصائيات -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number" id="totalStations">0</div>
+                <div class="stat-label">محطة وقود</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="governoratesCount">27</div>
+                <div class="stat-label">محافظة</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="verifiedCount">0</div>
+                <div class="stat-label">محطات موثوقة</div>
+            </div>
+        </div>
+
+        <!-- الخريطة وقائمة المحطات -->
+        <div class="main-content">
+            <section class="map-section">
+                <h2 class="section-title">خريطة محطات الوقود الموثوقة</h2>
+                <div id="map"></div>
+                <div style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
+                    <i class="fas fa-info-circle"></i> انقر على أي علامة في الخريطة لعرض تفاصيل المحطة
+                </div>
+            </section>
+
+            <section class="stations-section">
+                <h2 class="section-title">
+                    قائمة المحطات
+                    <span id="stationCount" class="badge">0</span>
+                </h2>
+                <div id="stationsContainer">
+                    <ul id="stationsList" class="station-list">
+                        <!-- سيتم ملء هذه القائمة بواسطة JavaScript -->
+                    </ul>
+                </div>
+                <div style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
+                    <i class="fas fa-mouse-pointer"></i> انقر على أي محطة لعرض موقعها على الخريطة
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">CleanFuel</div>
+                    <p>زوّد وانت مطمّن</p>
+                </div>
+                <div>
+                    <p>دليل محطات الوقود الموثوقة في جميع محافظات مصر</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">
+                        <i class="fas fa-lock"></i> إدارة المحطات متاحة للمسؤولين فقط
+                    </p>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 CleanFuel. جميع الحقوق محفوظة. | صمم بحب لمصر
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- تهيئة Firebase -->
+    <script>
+        // تهيئة Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCwVQ5vHdBVjeF-0TfCbJqEE06NYCH3CQw",
+            authDomain: "cleanfuel-3d673.firebaseapp.com",
+            projectId: "cleanfuel-3d673",
+            storageBucket: "cleanfuel-3d673.firebasestorage.app",
+            messagingSenderId: "870161182484",
+            appId: "1:870161182484:web:9fcda12160b6e3bac99c01",
+            measurementId: "G-WGDD1XWFY0"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+</body>
+</html>
