@@ -74,28 +74,11 @@ header {
     display: flex;
     align-items: center;
     flex: 1;
-    max-width: 500px;
-    min-width: 300px;
+    max-width: 700px;
+    min-width: 500px;
 }
 
-.search-box {
-    display: flex;
-    width: 100%;
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    border: 2px solid var(--primary-color);
-}
 
-.search-select {
-    flex: 1;
-    padding: 12px 20px;
-    border: none;
-    font-size: 1rem;
-    background-color: white;
-    color: var(--text-color);
-    outline: none;
-}
 
 .search-btn {
     background-color: var(--primary-color);
