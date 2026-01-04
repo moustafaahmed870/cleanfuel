@@ -1,0 +1,17 @@
+# 1. تحقق من مكانك
+pwd
+
+# 2. تحقق من التغييرات
+git status
+
+# 3. أضف التغييرات
+git add .
+
+# 4. احفظ
+git commit -m "تم إصلاح الخريطة وإضافة محطات جديدة"
+
+# 5. ارفع
+git push
+
+# 6. اختبر
+start https://moustafaahmed870.github.io/cleanfuel/
