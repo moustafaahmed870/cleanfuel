@@ -5,65 +5,52 @@
     <meta name="msvalidate.01" content="B4EAB2415BECCE83AA6AE7FC56B03385" />
     <meta charset="UTF-8">
     <meta name="description" content="دليل محطات الوقود الموثوقة في مصر - CleanFuel | زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
-    <!-- أضف هذا بعد <meta name="description"> مباشرة: -->
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://cleanfuel-egypt.com/">
-
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-<!-- Structured Data for Google -->
-<script type="application/ld+json">
+    <link rel="canonical" href="https://cleanfuel-egypt.com/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "CleanFuel مصر",
-  "alternateName": "دليل محطات الوقود الموثوقة",
-  "description": "دليل محطات الوقود الموثوقة في جميع محافظات مصر",
-  "url": "https://cleanfuel-egypt.com/",
-  "potentialAction": {
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "CleanFuel مصر",
+"alternateName": "دليل محطات الوقود الموثوقة",
+"description": "دليل محطات الوقود الموثوقة في جميع محافظات مصر",
+"url": "https://cleanfuel-egypt.com/",
+"potentialAction": {
     "@type": "SearchAction",
     "target": "https://cleanfuel-egypt.com/#search={search_term_string}",
     "query-input": "required name=search_term_string"
-  }
+}
 }
 </script>
-
-<!-- Structured Data for Local Business -->
-<script type="application/ld+json">
+    <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "CleanFuel",
-  "description": "دليل محطات الوقود الموثوقة في مصر",
-  "address": {
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "CleanFuel",
+"description": "دليل محطات الوقود الموثوقة في مصر",
+"address": {
     "@type": "PostalAddress",
     "addressCountry": "EG",
     "addressRegion": "جميع المحافظات"
-  },
-  "areaServed": {
+},
+"areaServed": {
     "@type": "Country",
     "name": "مصر"
-  }
+}
 }
 </script>
-<!-- الكلمات المفتاحية -->
-<meta name="keywords" content="محطات وقود مصر, وقود نظيف, بنزين موثوق, محطات البنزين, جودة الوقود, cleanfuel مصر, محطات وقود موثوقة">
-<!-- مؤلف الموقع -->
-<meta name="author" content="CleanFuel">
-
-<!-- Open Graph (للمشاركة على وسائل التواصل) -->
-<meta property="og:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
-<meta property="og:description" content="زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
-<meta property="og:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">
-<meta property="og:url" content="https://clean-fuel.netlify.app"><meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
-<meta name="twitter:description" content="دليل محطات الوقود الموثوقة في جميع محافظات مصر">
-<meta name="twitter:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="محطات وقود مصر, وقود نظيف, بنزين موثوق, محطات البنزين, جودة الوقود, cleanfuel مصر, محطات وقود موثوقة">
+    <meta name="author" content="CleanFuel">
+    <meta property="og:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
+    <meta property="og:description" content="زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
+    <meta property="og:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">
+    <meta property="og:url" content="https://clean-fuel.netlify.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
+    <meta name="twitter:description" content="دليل محطات الوقود الموثوقة في جميع محافظات مصر">
+    <meta name="twitter:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleanFuel - تسجيل دخول المدير</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -266,48 +253,46 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('loginForm');
-            const loginAlert = document.getElementById('loginAlert');
+    document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const loginAlert = document.getElementById('loginAlert');
+    
+    const encodedPassword = 'TTEwOTUwMEBA';
+    
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const password = document.getElementById('password').value;
+        
+        const correctPassword = atob(encodedPassword);
+        
+        if (password === correctPassword) {
+            localStorage.setItem('cleanfuel_admin_logged_in', 'true');
             
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const password = document.getElementById('password').value;
-                const correctPassword = 'M109500@';
-                
-                if (password === correctPassword) {
-                    // تخزين حالة تسجيل الدخول في localStorage
-                    localStorage.setItem('cleanfuel_admin_logged_in', 'true');
-                    
-                    // توجيه إلى صفحة الإدارة
-                    window.location.href = 'admin.html';
-                } else {
-                    loginAlert.textContent = 'كلمة المرور غير صحيحة!';
-                    loginAlert.style.display = 'block';
-                    
-                    // إخفاء التنبيه بعد 5 ثوانٍ
-                    setTimeout(() => {
-                        loginAlert.style.display = 'none';
-                    }, 5000);
-                }
-            });
+            window.location.href = 'admin.html';
+        } else {
+            loginAlert.textContent = 'كلمة المرور غير صحيحة!';
+            loginAlert.style.display = 'block';
             
-            // تفعيل البحث عند الضغط على Enter في حقل كلمة المرور
-            document.getElementById('password').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    loginForm.dispatchEvent(new Event('submit'));
-                }
-            });
-        });
+            setTimeout(() => {
+                loginAlert.style.display = 'none';
+            }, 5000);
+        }
+    });
+    
+    document.getElementById('password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            loginForm.dispatchEvent(new Event('submit'));
+        }
+    });
+});
     </script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
 </script>
 </body>
 </html>

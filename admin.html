@@ -1,1147 +1,1048 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta name="google-site-verification" content="_4pjHrMZz48oNcqDnw0rSF6ZAzeWiUF47y-g_rXXOzY" />
-    <meta name="msvalidate.01" content="B4EAB2415BECCE83AA6AE7FC56B03385" />
-    <meta charset="UTF-8">
-    <meta name="description" content="دليل محطات الوقود الموثوقة في مصر - CleanFuel | زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
-    <!-- أضف هذا بعد <meta name="description"> مباشرة: -->
-
-<!-- Canonical URL -->
+<meta name="google-site-verification" content="_4pjHrMZz48oNcqDnw0rSF6ZAzeWiUF47y-g_rXXOzY" />
+<meta name="msvalidate.01" content="B4EAB2415BECCE83AA6AE7FC56B03385" />
+<meta charset="UTF-8">
+<meta name="description" content="دليل محطات الوقود الموثوقة في مصر - CleanFuel | زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
 <link rel="canonical" href="https://cleanfuel-egypt.com/">
-
-<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-<!-- Structured Data for Google -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "CleanFuel مصر",
-  "alternateName": "دليل محطات الوقود الموثوقة",
-  "description": "دليل محطات الوقود الموثوقة في جميع محافظات مصر",
-  "url": "https://cleanfuel-egypt.com/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://cleanfuel-egypt.com/#search={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "CleanFuel مصر",
+"alternateName": "دليل محطات الوقود الموثوقة",
+"description": "دليل محطات الوقود الموثوقة في جميع محافظات مصر",
+"url": "https://cleanfuel-egypt.com/",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://cleanfuel-egypt.com/#search={search_term_string}",
+"query-input": "required name=search_term_string"
+}
 }
 </script>
-
-<!-- Structured Data for Local Business -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "CleanFuel",
-  "description": "دليل محطات الوقود الموثوقة في مصر",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "EG",
-    "addressRegion": "جميع المحافظات"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "مصر"
-  }
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "CleanFuel",
+"description": "دليل محطات الوقود الموثوقة في مصر",
+"address": {
+"@type": "PostalAddress",
+"addressCountry": "EG",
+"addressRegion": "جميع المحافظات"
+},
+"areaServed": {
+"@type": "Country",
+"name": "مصر"
+}
 }
 </script>
-<!-- الكلمات المفتاحية -->
 <meta name="keywords" content="محطات وقود مصر, وقود نظيف, بنزين موثوق, محطات البنزين, جودة الوقود, cleanfuel مصر, محطات وقود موثوقة">
-<!-- مؤلف الموقع -->
 <meta name="author" content="CleanFuel">
-
-<!-- Open Graph (للمشاركة على وسائل التواصل) -->
 <meta property="og:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
 <meta property="og:description" content="زوّد سيارتك وأنت مطمئن لسلامة الوقود وجودته في جميع محافظات مصر">
 <meta property="og:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">
 <meta property="og:url" content="https://clean-fuel.netlify.app">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CleanFuel - دليل محطات الوقود الموثوقة في مصر">
 <meta name="twitter:description" content="دليل محطات الوقود الموثوقة في جميع محافظات مصر">
-<meta name="twitter:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>لوحة تحكم CleanFuel | إدارة محطات الوقود الموثوقة في مصر</title>    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css">
-    <!-- إضافة Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    <style>
-        :root {
-            --primary-color: #1a3c2f;
-            --secondary-color: #e8f5e9;
-            --accent-color: #ff9800;
-            --text-color: #333;
-            --light-color: #f9f9f9;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --danger-color: #dc3545;
-        }
-        
-        .admin-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
+<meta name="twitter:image" content="https://clean-fuel.netlify.app/cleanfuel-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة تحكم CleanFuel | إدارة محطات الوقود الموثوقة في مصر</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css">
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<style>
+    :root {
+        --primary-color: #1a3c2f;
+        --secondary-color: #e8f5e9;
+        --accent-color: #ff9800;
+        --text-color: #333;
+        --light-color: #f9f9f9;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --danger-color: #dc3545;
+    }
+    
+    .admin-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 15px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .admin-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .admin-title {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .admin-title i {
+        font-size: 2rem;
+        color: var(--accent-color);
+    }
+    
+    .admin-title h1 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+    
+    .admin-title p {
+        color: #ddd;
+        font-size: 0.9rem;
+    }
+    
+    .admin-actions {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .logout-btn {
+        background-color: var(--danger-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .logout-btn:hover {
+        background-color: #c82333;
+    }
+    
+    .admin-stats {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+    }
+    
+    .admin-stat-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        flex: 1;
+        min-width: 200px;
+        border-top: 5px solid var(--primary-color);
+    }
+    
+    .admin-stat-number {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .admin-stat-label {
+        color: #666;
+        font-size: 1rem;
+    }
+    
+    .admin-section {
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+        margin-bottom: 30px;
+    }
+    
+    .stations-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    .stations-table th {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 15px;
+        text-align: right;
+    }
+    
+    .stations-table td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .stations-table tr:hover {
+        background-color: var(--secondary-color);
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .action-btn {
+        padding: 8px 15px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .edit-btn {
+        background-color: #ffc107;
+        color: #212529;
+    }
+    
+    .edit-btn:hover {
+        background-color: #e0a800;
+    }
+    
+    .delete-btn-table {
+        background-color: var(--danger-color);
+        color: white;
+    }
+    
+    .delete-btn-table:hover {
+        background-color: #c82333;
+    }
+    
+    .no-data {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-size: 1.1rem;
+    }
+    
+    .form-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .section-title {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--secondary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .section-title i {
+        margin-left: 10px;
+    }
+    
+    .badge {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-right: 10px;
+    }
+    
+    .btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .btn:hover {
+        background-color: #2c7a5e;
+    }
+    
+    .btn-accent {
+        background-color: var(--accent-color);
+    }
+    
+    .btn-accent:hover {
+        background-color: #e68900;
+    }
+    
+    .btn-danger {
+        background-color: var(--danger-color);
+    }
+    
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+    
+    @media (max-width: 992px) {
         .admin-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .admin-title {
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 15px;
-        }
-        
-        .admin-title i {
-            font-size: 2rem;
-            color: var(--accent-color);
-        }
-        
-        .admin-title h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        
-        .admin-title p {
-            color: #ddd;
-            font-size: 0.9rem;
+            text-align: center;
         }
         
         .admin-actions {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .logout-btn {
-            background-color: var(--danger-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .logout-btn:hover {
-            background-color: #c82333;
-        }
-        
-        .admin-stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
+            width: 100%;
+            justify-content: center;
         }
         
         .admin-stat-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            flex: 1;
-            min-width: 200px;
-            border-top: 5px solid var(--primary-color);
+            min-width: 150px;
         }
-        
-        .admin-stat-number {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .admin-stat-label {
-            color: #666;
-            font-size: 1rem;
-        }
-        
-        .admin-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-        
+    }
+    
+    @media (max-width: 768px) {
         .stations-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        .stations-table th {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px;
-            text-align: right;
-        }
-        
-        .stations-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .stations-table tr:hover {
-            background-color: var(--secondary-color);
+            display: block;
+            overflow-x: auto;
         }
         
         .action-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .action-btn {
-            padding: 8px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 5px;
         }
         
-        .edit-btn {
-            background-color: #ffc107;
-            color: #212529;
-        }
-        
-        .edit-btn:hover {
-            background-color: #e0a800;
-        }
-        
-        .delete-btn-table {
-            background-color: var(--danger-color);
-            color: white;
-        }
-        
-        .delete-btn-table:hover {
-            background-color: #c82333;
-        }
-        
-        .no-data {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-            font-size: 1.1rem;
+        .action-btn {
+            width: 100%;
+            justify-content: center;
         }
         
         .form-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .section-title {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .section-title i {
-            margin-left: 10px;
-        }
-        
-        .badge {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-right: 10px;
+            flex-direction: column;
         }
         
         .btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            width: 100%;
+            justify-content: center;
         }
-        
-        .btn:hover {
-            background-color: #2c7a5e;
-        }
-        
-        .btn-accent {
-            background-color: var(--accent-color);
-        }
-        
-        .btn-accent:hover {
-            background-color: #e68900;
-        }
-        
-        .btn-danger {
-            background-color: var(--danger-color);
-        }
-        
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
-        
-        /* تحسينات للاستجابة */
-        @media (max-width: 992px) {
-            .admin-nav {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .admin-actions {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .admin-stat-card {
-                min-width: 150px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .stations-table {
-                display: block;
-                overflow-x: auto;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-            .action-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .form-buttons {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-        
-        /* إضافة تحسينات للحقول */
-        .form-group small {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: block;
-        }
-        
-        .validation-message {
-            margin-top: 5px;
-            font-size: 0.85rem;
-        }
-        
-        .valid {
-            color: #2c7a5e;
-        }
-        
-        .invalid {
-            color: var(--danger-color);
-        }
-        
-        /* تنسيق حقول الإحداثيات */
-        .coordinate-input {
-            position: relative;
-        }
-        
-        .coordinate-input i {
-            position: absolute;
-            right: 10px;
-            top: 40px;
-            color: var(--primary-color);
-        }
-        
-        .coordinate-help {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 5px;
-            text-align: center;
-        }
-        
-        .coordinate-example {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            text-align: center;
-        }
-    </style>
+    }
+    
+    .form-group small {
+        color: #666;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: block;
+    }
+    
+    .validation-message {
+        margin-top: 5px;
+        font-size: 0.85rem;
+    }
+    
+    .valid {
+        color: #2c7a5e;
+    }
+    
+    .invalid {
+        color: var(--danger-color);
+    }
+    
+    .coordinate-input {
+        position: relative;
+    }
+    
+    .coordinate-input i {
+        position: absolute;
+        right: 10px;
+        top: 40px;
+        color: var(--primary-color);
+    }
+    
+    .coordinate-help {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 5px;
+        text-align: center;
+    }
+    
+    .coordinate-example {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 15px;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+</style>
 </head>
 <body>
-    <!-- الهيدر الخاص بالمدير -->
-    <header class="admin-header">
-        <div class="container">
-            <div class="admin-nav">
-                <div class="admin-title">
-                    <i class="fas fa-user-shield"></i>
-                    <div>
-                        <h1>لوحة تحكم CleanFuel</h1>
-                        <p>إدارة محطات الوقود الموثوقة</p>
-                    </div>
-                </div>
-                
-                <div class="admin-actions">
-                    <button class="btn btn-accent" onclick="window.location.href='index.html'">
-                        <i class="fas fa-home"></i> الصفحة الرئيسية
-                    </button>
-                    <button class="logout-btn" id="logoutBtn">
-                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
+<header class="admin-header">
     <div class="container">
-        <!-- تنبيهات -->
-        <div id="alert" class="alert"></div>
-
-        <!-- إحصائيات -->
-        <div class="admin-stats">
-            <div class="admin-stat-card">
-                <div class="admin-stat-number" id="totalStations">0</div>
-                <div class="admin-stat-label">إجمالي المحطات</div>
-            </div>
-            <div class="admin-stat-card">
-                <div class="admin-stat-number" id="governoratesCount">27</div>
-                <div class="admin-stat-label">محافظة</div>
-            </div>
-            <div class="admin-stat-card">
-                <div class="admin-stat-number" id="verifiedCount">0</div>
-                <div class="admin-stat-label">محطات موثوقة</div>
-            </div>
-        </div>
-
-        <!-- إضافة محطة جديدة -->
-        <section class="admin-section">
-            <h2 class="section-title">
-                <i class="fas fa-plus-circle"></i> إضافة محطة وقود جديدة
-            </h2>
-            <form id="addStationForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="stationName">اسم المحطة *</label>
-                        <input type="text" id="stationName" class="form-control" placeholder="مثل: تعاونيات القاهرة" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="governorate">المحافظة *</label>
-                        <select id="governorate" class="form-control" required>
-                            <option value="">اختر المحافظة</option>
-                            <option value="القاهرة">القاهرة</option>
-                            <option value="الجيزة">الجيزة</option>
-                            <option value="الإسكندرية">الإسكندرية</option>
-                            <option value="الدقهلية">الدقهلية</option>
-                            <option value="البحر الأحمر">البحر الأحمر</option>
-                            <option value="البحيرة">البحيرة</option>
-                            <option value="الفيوم">الفيوم</option>
-                            <option value="الغربية">الغربية</option>
-                            <option value="الإسماعيلية">الإسماعيلية</option>
-                            <option value="المنوفية">المنوفية</option>
-                            <option value="المنيا">المنيا</option>
-                            <option value="القليوبية">القليوبية</option>
-                            <option value="الوادي الجديد">الوادي الجديد</option>
-                            <option value="السويس">السويس</option>
-                            <option value="اسوان">أسوان</option>
-                            <option value="اسيوط">أسيوط</option>
-                            <option value="بني سويف">بني سويف</option>
-                            <option value="بورسعيد">بورسعيد</option>
-                            <option value="دمياط">دمياط</option>
-                            <option value="الشرقية">الشرقية</option>
-                            <option value="جنوب سيناء">جنوب سيناء</option>
-                            <option value="كفر الشيخ">كفر الشيخ</option>
-                            <option value="مطروح">مطروح</option>
-                            <option value="الأقصر">الأقصر</option>
-                            <option value="قنا">قنا</option>
-                            <option value="شمال سيناء">شمال سيناء</option>
-                            <option value="سوهاج">سوهاج</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="address">العنوان بالتفصيل *</label>
-                        <input type="text" id="address" class="form-control" placeholder="مثل: شارع النصر، مدينة نصر" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="verifiedStatus">حالة التحقق</label>
-                        <select id="verifiedStatus" class="form-control">
-                            <option value="true">محطة موثوقة ✓</option>
-                            <option value="false">محطة غير موثوقة</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group coordinate-input">
-                        <label for="latitude">
-                            <i class="fas fa-map-marker-alt"></i> خط العرض (Latitude) *
-                        </label>
-                        <input type="number" id="latitude" class="form-control" 
-                               placeholder="مثل: 30.0444" step="0.000001" 
-                               min="21.0" max="31.8" required>
-                        <small class="coordinate-help">القيمة بين 21.0 و 31.8 لمصر</small>
-                    </div>
-                    <div class="form-group coordinate-input">
-                        <label for="longitude">
-                            <i class="fas fa-map-marker-alt"></i> خط الطول (Longitude) *
-                        </label>
-                        <input type="number" id="longitude" class="form-control" 
-                               placeholder="مثل: 31.2357" step="0.000001" 
-                               min="24.0" max="36.9" required>
-                        <small class="coordinate-help">القيمة بين 24.0 و 36.9 لمصر</small>
-                    </div>
-                </div>
-                
-                <div class="coordinate-example">
-                    <strong><i class="fas fa-lightbulb"></i> أمثلة للإحداثيات:</strong>
-                    <ul style="text-align: right; padding-right: 15px;">
-                        <li>القاهرة: 30.0444, 31.2357</li>
-                        <li>الجيزة: 30.0131, 31.2089</li>
-                        <li>الإسكندرية: 31.2001, 29.9187</li>
-                        <li>الدقهلية: 31.0409, 31.3785</li>
-                        <li>البحر الأحمر: 27.2579, 33.8116</li>
-                    </ul>
-                </div>
-                
-                <div style="text-align: center; margin-top: 15px;">
-                    <button type="button" class="btn" onclick="getCurrentLocation()" 
-                            style="background-color: #e8f5e9; color: #2c7a5e; border: 1px solid #2c7a5e;">
-                        <i class="fas fa-location-arrow"></i> استخدام موقعي الحالي
-                    </button>
-                </div>
-                
-                <div class="form-buttons">
-                    <button type="submit" class="btn btn-accent">
-                        <i class="fas fa-plus-circle"></i> إضافة محطة الوقود
-                    </button>
-                    <button type="reset" class="btn">
-                        <i class="fas fa-redo"></i> إعادة تعيين
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <!-- قائمة المحطات -->
-        <section class="admin-section">
-            <h2 class="section-title">
-                <i class="fas fa-list"></i> قائمة محطات الوقود
-                <span id="stationCount" class="badge">0</span>
-            </h2>
-            
-            <div id="stationsTableContainer">
-                <table class="stations-table">
-                    <thead>
-                        <tr>
-                            <th>اسم المحطة</th>
-                            <th>المحافظة</th>
-                            <th>العنوان</th>
-                            <th>حالة التحقق</th>
-                            <th>الإجراءات</th>
-                        </tr>
-                    </thead>
-                    <tbody id="stationsTableBody">
-                        <!-- سيتم ملء هذا الجدول بواسطة JavaScript -->
-                    </tbody>
-                </table>
-                <div id="noStationsMessage" class="no-data" style="display: none;">
-                    <i class="fas fa-gas-pump" style="font-size: 3rem; margin-bottom: 15px; color: #ddd;"></i>
-                    <p>لا توجد محطات وقود مضافة بعد</p>
-                    <p style="font-size: 0.9rem; color: #999; margin-top: 10px;">استخدم النموذج أعلاه لإضافة محطات وقود جديدة</p>
-                </div>
-            </div>
-            
-            <div class="form-buttons" style="margin-top: 30px;">
-                <button type="button" id="clearAllBtn" class="btn btn-danger">
-                    <i class="fas fa-trash"></i> حذف جميع المحطات
-                </button>
-                <button type="button" id="exportBtn" class="btn btn-accent">
-                    <i class="fas fa-download"></i> تصدير البيانات
-                </button>
-                <button type="button" id="importBtn" class="btn">
-                    <i class="fas fa-upload"></i> استيراد البيانات
-                </button>
-            </div>
-        </section>
-        
-        <!-- قسم المساعدة -->
-        <section class="admin-section" style="background-color: #f8f9fa; border: 1px dashed #ddd;">
-            <h2 class="section-title">
-                <i class="fas fa-question-circle"></i> تعليمات استخدام لوحة التحكم
-            </h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">
-                        <i class="fas fa-plus"></i> إضافة محطة جديدة
-                    </h3>
-                    <p>املأ جميع الحقول المطلوبة (*) ثم انقر على زر "إضافة محطة الوقود"</p>
-                </div>
-                <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">
-                        <i class="fas fa-edit"></i> تعديل محطة
-                    </h3>
-                    <p>انقر على زر "تعديل" بجانب المحطة التي تريد تعديلها، ثم قم بالتغييرات وانقر على "تحديث المحطة"</p>
-                </div>
-                <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">
-                        <i class="fas fa-trash"></i> حذف محطة
-                    </h3>
-                    <p>انقر على زر "حذف" بجانب المحطة التي تريد حذفها، ستظهر رسالة تأكيد قبل الحذف النهائي</p>
-                </div>
-                <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">
-                        <i class="fas fa-sync"></i> المزامنة
-                    </h3>
-                    <p>جميع التعديلات تظهر تلقائياً في الصفحة الرئيسية فور حفظها</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- الفوتر -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
+        <div class="admin-nav">
+            <div class="admin-title">
+                <i class="fas fa-user-shield"></i>
                 <div>
-                    <div class="footer-logo">لوحة تحكم CleanFuel</div>
+                    <h1>لوحة تحكم CleanFuel</h1>
                     <p>إدارة محطات الوقود الموثوقة</p>
                 </div>
             </div>
+            
+            <div class="admin-actions">
+                <button class="btn btn-accent" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i> الصفحة الرئيسية
+                </button>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                </button>
+            </div>
         </div>
-    </footer>
+    </div>
+</header>
 
-    <!-- مكتبة Leaflet للخرائط -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<div class="container">
+    <div id="alert" class="alert"></div>
+
+    <div class="admin-stats">
+        <div class="admin-stat-card">
+            <div class="admin-stat-number" id="totalStations">0</div>
+            <div class="admin-stat-label">إجمالي المحطات</div>
+        </div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-number" id="governoratesCount">27</div>
+            <div class="admin-stat-label">محافظة</div>
+        </div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-number" id="verifiedCount">0</div>
+            <div class="admin-stat-label">محطات موثوقة</div>
+        </div>
+    </div>
+
+    <section class="admin-section">
+        <h2 class="section-title">
+            <i class="fas fa-plus-circle"></i> إضافة محطة وقود جديدة
+        </h2>
+        <form id="addStationForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="stationName">اسم المحطة *</label>
+                    <input type="text" id="stationName" class="form-control" placeholder="مثل: تعاونيات القاهرة" required>
+                </div>
+                <div class="form-group">
+                    <label for="governorate">المحافظة *</label>
+                    <select id="governorate" class="form-control" required>
+                        <option value="">اختر المحافظة</option>
+                        <option value="القاهرة">القاهرة</option>
+                        <option value="الجيزة">الجيزة</option>
+                        <option value="الإسكندرية">الإسكندرية</option>
+                        <option value="الدقهلية">الدقهلية</option>
+                        <option value="البحر الأحمر">البحر الأحمر</option>
+                        <option value="البحيرة">البحيرة</option>
+                        <option value="الفيوم">الفيوم</option>
+                        <option value="الغربية">الغربية</option>
+                        <option value="الإسماعيلية">الإسماعيلية</option>
+                        <option value="المنوفية">المنوفية</option>
+                        <option value="المنيا">المنيا</option>
+                        <option value="القليوبية">القليوبية</option>
+                        <option value="الوادي الجديد">الوادي الجديد</option>
+                        <option value="السويس">السويس</option>
+                        <option value="اسوان">أسوان</option>
+                        <option value="اسيوط">أسيوط</option>
+                        <option value="بني سويف">بني سويف</option>
+                        <option value="بورسعيد">بورسعيد</option>
+                        <option value="دمياط">دمياط</option>
+                        <option value="الشرقية">الشرقية</option>
+                        <option value="جنوب سيناء">جنوب سيناء</option>
+                        <option value="كفر الشيخ">كفر الشيخ</option>
+                        <option value="مطروح">مطروح</option>
+                        <option value="الأقصر">الأقصر</option>
+                        <option value="قنا">قنا</option>
+                        <option value="شمال سيناء">شمال سيناء</option>
+                        <option value="سوهاج">سوهاج</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="address">العنوان بالتفصيل *</label>
+                    <input type="text" id="address" class="form-control" placeholder="مثل: شارع النصر، مدينة نصر" required>
+                </div>
+                <div class="form-group">
+                    <label for="verifiedStatus">حالة التحقق</label>
+                    <select id="verifiedStatus" class="form-control">
+                        <option value="true">محطة موثوقة ✓</option>
+                        <option value="false">محطة غير موثوقة</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group coordinate-input">
+                    <label for="latitude">
+                        <i class="fas fa-map-marker-alt"></i> خط العرض (Latitude) *
+                    </label>
+                    <input type="number" id="latitude" class="form-control" 
+                            placeholder="مثل: 30.0444" step="0.000001" 
+                            min="21.0" max="31.8" required>
+                    <small class="coordinate-help">القيمة بين 21.0 و 31.8 لمصر</small>
+                </div>
+                <div class="form-group coordinate-input">
+                    <label for="longitude">
+                        <i class="fas fa-map-marker-alt"></i> خط الطول (Longitude) *
+                    </label>
+                    <input type="number" id="longitude" class="form-control" 
+                            placeholder="مثل: 31.2357" step="0.000001" 
+                            min="24.0" max="36.9" required>
+                    <small class="coordinate-help">القيمة بين 24.0 و 36.9 لمصر</small>
+                </div>
+            </div>
+            
+            <div class="coordinate-example">
+                <strong><i class="fas fa-lightbulb"></i> أمثلة للإحداثيات:</strong>
+                <ul style="text-align: right; padding-right: 15px;">
+                    <li>القاهرة: 30.0444, 31.2357</li>
+                    <li>الجيزة: 30.0131, 31.2089</li>
+                    <li>الإسكندرية: 31.2001, 29.9187</li>
+                    <li>الدقهلية: 31.0409, 31.3785</li>
+                    <li>البحر الأحمر: 27.2579, 33.8116</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 15px;">
+                <button type="button" class="btn" onclick="getCurrentLocation()" 
+                        style="background-color: #e8f5e9; color: #2c7a5e; border: 1px solid #2c7a5e;">
+                    <i class="fas fa-location-arrow"></i> استخدام موقعي الحالي
+                </button>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-accent">
+                    <i class="fas fa-plus-circle"></i> إضافة محطة الوقود
+                </button>
+                <button type="reset" class="btn">
+                    <i class="fas fa-redo"></i> إعادة تعيين
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <section class="admin-section">
+        <h2 class="section-title">
+            <i class="fas fa-list"></i> قائمة محطات الوقود
+            <span id="stationCount" class="badge">0</span>
+        </h2>
+        
+        <div id="stationsTableContainer">
+            <table class="stations-table">
+                <thead>
+                    <tr>
+                        <th>اسم المحطة</th>
+                        <th>المحافظة</th>
+                        <th>العنوان</th>
+                        <th>حالة التحقق</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="stationsTableBody">
+                </tbody>
+            </table>
+            <div id="noStationsMessage" class="no-data" style="display: none;">
+                <i class="fas fa-gas-pump" style="font-size: 3rem; margin-bottom: 15px; color: #ddd;"></i>
+                <p>لا توجد محطات وقود مضافة بعد</p>
+                <p style="font-size: 0.9rem; color: #999; margin-top: 10px;">استخدم النموذج أعلاه لإضافة محطات وقود جديدة</p>
+            </div>
+        </div>
+        
+        <div class="form-buttons" style="margin-top: 30px;">
+            <button type="button" id="clearAllBtn" class="btn btn-danger">
+                <i class="fas fa-trash"></i> حذف جميع المحطات
+            </button>
+            <button type="button" id="exportBtn" class="btn btn-accent">
+                <i class="fas fa-download"></i> تصدير البيانات
+            </button>
+            <button type="button" id="importBtn" class="btn">
+                <i class="fas fa-upload"></i> استيراد البيانات
+            </button>
+        </div>
+    </section>
     
-    <script>
-    // تهيئة Firebase
-    let db;
-    let stations = [];
-    let editingStationId = null;
-    
-    // تهيئة Firebase عند تحميل الصفحة
-    function initializeFirebase() {
-        try {
-            const firebaseConfig = {
-                apiKey: "AIzaSyCwVQ5vHdBVjeF-0TfCbJqEE06NYCH3CQw",
-                authDomain: "cleanfuel-3d673.firebaseapp.com",
-                projectId: "cleanfuel-3d673",
-                storageBucket: "cleanfuel-3d673.firebasestorage.app",
-                messagingSenderId: "870161182484",
-                appId: "1:870161182484:web:9fcda12160b6e3bac99c01",
-                measurementId: "G-WGDD1XWFY0"
-            };
-            
-            if (!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-                console.log('✅ تم تهيئة Firebase');
-            }
-            
-            db = firebase.firestore();
-            console.log('✅ Firestore جاهز');
-            return true;
-            
-        } catch (error) {
-            console.error('❌ خطأ في تهيئة Firebase:', error);
-            showAlert(`خطأ في الاتصال بقاعدة البيانات: ${error.message}`, 'danger');
-            return false;
-        }
-    }
-    
-    // وظيفة لتحميل البيانات من Firebase
-    async function loadStationsFromFirebase() {
-        try {
-            console.log('جاري تحميل المحطات من Firebase...');
-            
-            const snapshot = await db.collection('stations').get();
-            stations = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-            
-            console.log('تم تحميل المحطات من Firebase:', stations.length);
-            updateAdminStats();
-            displayStationsInTable();
-            
-        } catch (error) {
-            console.error('خطأ في تحميل البيانات من Firebase:', error);
-            showAlert('حدث خطأ في تحميل البيانات من السحابة', 'danger');
-        }
-    }
-    
-    // وظيفة تحديث إحصائيات المدير
-    function updateAdminStats() {
-        document.getElementById('totalStations').textContent = stations.length;
-        document.getElementById('stationCount').textContent = stations.length;
-        
-        const uniqueGovernorates = new Set(stations.map(station => station.governorate));
-        document.getElementById('governoratesCount').textContent = Math.max(uniqueGovernorates.size, 1);
-        
-        const verifiedCount = stations.filter(station => station.verified === true).length;
-        document.getElementById('verifiedCount').textContent = verifiedCount;
-    }
-    
-    // وظيفة لعرض المحطات في الجدول
-    function displayStationsInTable() {
-        const tableBody = document.getElementById('stationsTableBody');
-        const noStationsMessage = document.getElementById('noStationsMessage');
-        
-        tableBody.innerHTML = '';
-        
-        if (stations.length === 0) {
-            noStationsMessage.style.display = 'block';
-            return;
-        }
-        
-        noStationsMessage.style.display = 'none';
-        
-        const sortedStations = [...stations].sort((a, b) => 
-            new Date(b.addedDate || 0) - new Date(a.addedDate || 0)
-        );
-        
-        sortedStations.forEach(station => {
-            const tableRow = document.createElement('tr');
-            
-            tableRow.innerHTML = `
-                <td>
-                    <strong>${station.name}</strong>
-                    ${station.verified ? '<i class="fas fa-check-circle" style="color: #2c7a5e; margin-right: 5px;"></i>' : ''}
-                </td>
-                <td>${station.governorate}</td>
-                <td>${station.address}</td>
-                <td>
-                    ${station.verified ? 
-                        '<span style="color: #2c7a5e; font-weight: bold;">✓ موثوقة</span>' : 
-                        '<span style="color: #dc3545;">غير موثوقة</span>'}
-                </td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="action-btn edit-btn" onclick="editStation('${station.id}')">
-                            <i class="fas fa-edit"></i> تعديل
-                        </button>
-                        <button class="action-btn delete-btn-table" onclick="deleteStation('${station.id}')">
-                            <i class="fas fa-trash"></i> حذف
-                        </button>
-                    </div>
-                </td>
-            `;
-            
-            tableBody.appendChild(tableRow);
-        });
-    }
-    
-    // وظيفة لعرض التنبيهات
-    function showAlert(message, type = 'success') {
-        const alert = document.getElementById('alert');
-        alert.textContent = message;
-        alert.className = `alert alert-${type}`;
-        alert.style.display = 'block';
-        
-        setTimeout(() => {
-            alert.style.display = 'none';
-        }, 5000);
-    }
-    
-    // وظيفة لإضافة محطة جديدة
-    async function addNewStation(stationData) {
-        try {
-            stationData.verified = stationData.verified === 'true' || stationData.verified === true;
-            stationData.addedDate = new Date().toISOString();
-            stationData.googleMapsLink = `https://maps.google.com/?q=${stationData.lat},${stationData.lng}`;
-            
-            console.log('جاري إضافة محطة جديدة:', stationData);
-            
-            const docRef = await db.collection('stations').add(stationData);
-            console.log('تمت الإضافة بنجاح، المعرف:', docRef.id);
-            
-            await loadStationsFromFirebase();
-            document.getElementById('addStationForm').reset();
-            
-            showAlert(`تم إضافة محطة الوقود "${stationData.name}" بنجاح!`, 'success');
-            
-            return docRef.id;
-        } catch (error) {
-            console.error('خطأ في إضافة المحطة:', error);
-            showAlert(`حدث خطأ في إضافة المحطة: ${error.message}`, 'danger');
-            return null;
-        }
-    }
-    
-    // وظيفة لتحديث محطة
-    async function updateStation(stationId, stationData) {
-        try {
-            stationData.verified = stationData.verified === 'true' || stationData.verified === true;
-            stationData.googleMapsLink = `https://maps.google.com/?q=${stationData.lat},${stationData.lng}`;
-            
-            await db.collection('stations').doc(stationId).update(stationData);
-            await loadStationsFromFirebase();
-            
-            document.getElementById('addStationForm').reset();
-            editingStationId = null;
-            
-            showAlert(`تم تحديث محطة الوقود "${stationData.name}" بنجاح!`, 'success');
-            
-            const cancelBtn = document.querySelector('#addStationForm .cancel-edit-btn');
-            if (cancelBtn) cancelBtn.remove();
-            
-            const submitBtn = document.querySelector('#addStationForm button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fas fa-plus-circle"></i> إضافة محطة الوقود';
-            
-        } catch (error) {
-            console.error('خطأ في تحديث المحطة:', error);
-            showAlert('حدث خطأ في تحديث المحطة', 'danger');
-        }
-    }
-    
-    // وظيفة لحذف محطة
-    async function deleteStation(stationId) {
-        if (confirm('هل أنت متأكد من حذف هذه المحطة؟')) {
-            try {
-                const station = stations.find(s => s.id === stationId);
-                const stationName = station ? station.name : 'المحطة';
-                
-                await db.collection('stations').doc(stationId).delete();
-                await loadStationsFromFirebase();
-                
-                showAlert(`تم حذف محطة الوقود "${stationName}" بنجاح`, 'success');
-            } catch (error) {
-                console.error('خطأ في حذف المحطة:', error);
-                showAlert('حدث خطأ في حذف المحطة', 'danger');
-            }
-        }
-    }
-    
-    // وظيفة لحذف جميع المحطات
-    async function clearAllStations() {
-        if (stations.length === 0) {
-            showAlert('لا توجد محطات لحذفها', 'danger');
-            return;
-        }
-        
-        if (confirm('هل أنت متأكد من حذف جميع المحطات؟ هذا الإجراء لا يمكن التراجع عنه.')) {
-            try {
-                const batch = db.batch();
-                stations.forEach(station => {
-                    batch.delete(db.collection('stations').doc(station.id));
-                });
-                
-                await batch.commit();
-                await loadStationsFromFirebase();
-                
-                showAlert('تم حذف جميع المحطات بنجاح', 'success');
-            } catch (error) {
-                console.error('خطأ في حذف جميع المحطات:', error);
-                showAlert('حدث خطأ في حذف جميع المحطات', 'danger');
-            }
-        }
-    }
-    
-    // وظيفة لتعديل محطة
-    function editStation(stationId) {
-        const station = stations.find(s => s.id === stationId);
-        if (!station) return;
-        
-        editingStationId = stationId;
-        
-        document.getElementById('stationName').value = station.name;
-        document.getElementById('governorate').value = station.governorate;
-        document.getElementById('address').value = station.address;
-        document.getElementById('latitude').value = station.lat;
-        document.getElementById('longitude').value = station.lng;
-        document.getElementById('verifiedStatus').value = station.verified.toString();
-        
-        const submitBtn = document.querySelector('#addStationForm button[type="submit"]');
-        submitBtn.innerHTML = '<i class="fas fa-save"></i> تحديث المحطة';
-        
-        let cancelBtn = document.querySelector('#addStationForm .cancel-edit-btn');
-        if (!cancelBtn) {
-            cancelBtn = document.createElement('button');
-            cancelBtn.type = 'button';
-            cancelBtn.className = 'btn btn-danger cancel-edit-btn';
-            cancelBtn.innerHTML = '<i class="fas fa-times"></i> إلغاء التعديل';
-            cancelBtn.style.marginRight = '10px';
-            
-            cancelBtn.onclick = function() {
-                document.getElementById('addStationForm').reset();
-                editingStationId = null;
-                submitBtn.innerHTML = '<i class="fas fa-plus-circle"></i> إضافة محطة الوقود';
-                cancelBtn.remove();
-                showAlert('تم إلغاء التعديل', 'info');
-            };
-            
-            const formButtons = document.querySelector('.form-buttons');
-            formButtons.insertBefore(cancelBtn, submitBtn);
-        }
-        
-        showAlert(`جاري تعديل محطة الوقود "${station.name}"`, 'info');
-    }
-    
-    // وظيفة لتصدير البيانات
-    function exportData() {
-        const dataStr = JSON.stringify(stations, null, 2);
-        const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-        
-        const exportFileDefaultName = 'cleanfuel-stations-' + new Date().toISOString().split('T')[0] + '.json';
-        
-        const linkElement = document.createElement('a');
-        linkElement.setAttribute('href', dataUri);
-        linkElement.setAttribute('download', exportFileDefaultName);
-        linkElement.click();
-        
-        showAlert('تم تصدير البيانات بنجاح', 'success');
-    }
-    
-    // وظيفة لاستيراد البيانات
-    async function importData() {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = '.json';
-        
-        input.onchange = async function(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = async function(e) {
-                try {
-                    const importedStations = JSON.parse(e.target.result);
-                    
-                    if (!Array.isArray(importedStations)) {
-                        throw new Error('ملف غير صالح');
-                    }
-                    
-                    if (confirm(`سيتم استيراد ${importedStations.length} محطة. هل تريد المتابعة؟`)) {
-                        try {
-                            const batchDelete = db.batch();
-                            stations.forEach(station => {
-                                batchDelete.delete(db.collection('stations').doc(station.id));
-                            });
-                            await batchDelete.commit();
-                            
-                            const batchAdd = db.batch();
-                            importedStations.forEach(station => {
-                                const docRef = db.collection('stations').doc();
-                                batchAdd.set(docRef, station);
-                            });
-                            await batchAdd.commit();
-                            
-                            await loadStationsFromFirebase();
-                            
-                            showAlert(`تم استيراد ${importedStations.length} محطة بنجاح`, 'success');
-                        } catch (error) {
-                            console.error('خطأ في استيراد البيانات:', error);
-                            showAlert('حدث خطأ في استيراد البيانات', 'danger');
-                        }
-                    }
-                } catch (error) {
-                    showAlert('خطأ في قراءة الملف. تأكد من أن الملف صالح', 'danger');
-                }
-            };
-            
-            reader.readAsText(file);
+    <section class="admin-section" style="background-color: #f8f9fa; border: 1px dashed #ddd;">
+        <h2 class="section-title">
+            <i class="fas fa-question-circle"></i> تعليمات استخدام لوحة التحكم
+        </h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">
+                    <i class="fas fa-plus"></i> إضافة محطة جديدة
+                </h3>
+                <p>املأ جميع الحقول المطلوبة (*) ثم انقر على زر "إضافة محطة الوقود"</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">
+                    <i class="fas fa-edit"></i> تعديل محطة
+                </h3>
+                <p>انقر على زر "تعديل" بجانب المحطة التي تريد تعديلها، ثم قم بالتغييرات وانقر على "تحديث المحطة"</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">
+                    <i class="fas fa-trash"></i> حذف محطة
+                </h3>
+                <p>انقر على زر "حذف" بجانب المحطة التي تريد حذفها، ستظهر رسالة تأكيد قبل الحذف النهائي</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; padding: 15px; background: white; border-radius: 8px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 10px;">
+                    <i class="fas fa-sync"></i> المزامنة
+                </h3>
+                <p>جميع التعديلات تظهر تلقائياً في الصفحة الرئيسية فور حفظها</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">لوحة تحكم CleanFuel</div>
+                <p>إدارة محطات الوقود الموثوقة</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+let db;
+let stations = [];
+let editingStationId = null;
+
+function initializeFirebase() {
+    try {
+        const firebaseConfig = {
+            apiKey: "AIzaSyCwVQ5vHdBVjeF-0TfCbJqEE06NYCH3CQw",
+            authDomain: "cleanfuel-3d673.firebaseapp.com",
+            projectId: "cleanfuel-3d673",
+            storageBucket: "cleanfuel-3d673.firebasestorage.app",
+            messagingSenderId: "870161182484",
+            appId: "1:870161182484:web:9fcda12160b6e3bac99c01",
+            measurementId: "G-WGDD1XWFY0"
         };
         
-        input.click();
-    }
-    
-    // وظيفة لتسجيل الخروج
-    function logout() {
-        localStorage.removeItem('cleanfuel_admin_logged_in');
-        window.location.href = 'login.html';
-    }
-    
-    // وظيفة للحصول على الموقع الحالي
-    function getCurrentLocation() {
-        if (!navigator.geolocation) {
-            showAlert('متصفحك لا يدعم تحديد الموقع', 'danger');
-            return;
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
         }
         
-        showAlert('جاري تحديد موقعك...', 'info');
+        db = firebase.firestore();
+        return true;
         
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const lat = position.coords.latitude;
-                const lng = position.coords.longitude;
-                
-                document.getElementById('latitude').value = lat.toFixed(6);
-                document.getElementById('longitude').value = lng.toFixed(6);
-                
-                showAlert(`تم تحديد موقعك: ${lat.toFixed(6)}, ${lng.toFixed(6)}`, 'success');
-            },
-            (error) => {
-                let message = 'حدث خطأ في تحديد الموقع';
-                if (error.code === error.PERMISSION_DENIED) {
-                    message = 'تم رفض إذن الوصول للموقع';
-                } else if (error.code === error.POSITION_UNAVAILABLE) {
-                    message = 'معلومات الموقع غير متاحة';
-                } else if (error.code === error.TIMEOUT) {
-                    message = 'انتهت مهلة طلب الموقع';
-                }
-                showAlert(message, 'danger');
-            }
-        );
+    } catch (error) {
+        console.error('خطأ في تهيئة Firebase:', error);
+        showAlert(`خطأ في الاتصال بقاعدة البيانات: ${error.message}`, 'danger');
+        return false;
+    }
+}
+
+async function loadStationsFromFirebase() {
+    try {
+        const snapshot = await db.collection('stations').get();
+        stations = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        
+        updateAdminStats();
+        displayStationsInTable();
+        
+    } catch (error) {
+        console.error('خطأ في تحميل البيانات من Firebase:', error);
+        showAlert('حدث خطأ في تحميل البيانات من السحابة', 'danger');
+    }
+}
+
+function updateAdminStats() {
+    document.getElementById('totalStations').textContent = stations.length;
+    document.getElementById('stationCount').textContent = stations.length;
+    
+    const uniqueGovernorates = new Set(stations.map(station => station.governorate));
+    document.getElementById('governoratesCount').textContent = Math.max(uniqueGovernorates.size, 1);
+    
+    const verifiedCount = stations.filter(station => station.verified === true).length;
+    document.getElementById('verifiedCount').textContent = verifiedCount;
+}
+
+function displayStationsInTable() {
+    const tableBody = document.getElementById('stationsTableBody');
+    const noStationsMessage = document.getElementById('noStationsMessage');
+    
+    tableBody.innerHTML = '';
+    
+    if (stations.length === 0) {
+        noStationsMessage.style.display = 'block';
+        return;
     }
     
-    // وظيفة فحص Firebase (اختيارية)
-    function addFirebaseTestButton() {
-        try {
-            const helpSection = document.querySelector('.admin-section:last-child');
-            if (!helpSection) return;
-            
-            if (document.getElementById('firebaseTestBtn')) return;
-            
-            const testBtn = document.createElement('button');
-            testBtn.id = 'firebaseTestBtn';
-            testBtn.type = 'button';
-            testBtn.className = 'btn';
-            testBtn.style.backgroundColor = '#4285F4';
-            testBtn.style.color = 'white';
-            testBtn.innerHTML = '<i class="fas fa-database"></i> فحص Firebase';
-            
-            testBtn.onclick = async function() {
-                try {
-                    showAlert('جاري فحص Firebase...', 'info');
-                    
-                    // اختبار القراءة
-                    const snapshot = await db.collection('stations').limit(1).get();
-                    showAlert(`✅ Firebase يعمل! عدد المحطات: ${snapshot.size}`, 'success');
-                    
-                } catch (error) {
-                    showAlert(`❌ خطأ في Firebase: ${error.message}`, 'danger');
-                }
-            };
-            
-            helpSection.querySelector('.form-buttons').appendChild(testBtn);
-        } catch (error) {
-            console.log('زر فحص Firebase غير مطلوب:', error);
-        }
-    }
+    noStationsMessage.style.display = 'none';
     
-    // تهيئة الصفحة عند التحميل
-    document.addEventListener('DOMContentLoaded', function() {
-        // التحقق من تسجيل الدخول
-        const isLoggedIn = localStorage.getItem('cleanfuel_admin_logged_in');
-        if (!isLoggedIn || isLoggedIn !== 'true') {
-            window.location.href = 'login.html';
-            return;
-        }
+    const sortedStations = [...stations].sort((a, b) => 
+        new Date(b.addedDate || 0) - new Date(a.addedDate || 0)
+    );
+    
+    sortedStations.forEach(station => {
+        const tableRow = document.createElement('tr');
         
-        // تهيئة Firebase
-        if (initializeFirebase()) {
-            loadStationsFromFirebase();
-        }
+        tableRow.innerHTML = `
+            <td>
+                <strong>${station.name}</strong>
+                ${station.verified ? '<i class="fas fa-check-circle" style="color: #2c7a5e; margin-right: 5px;"></i>' : ''}
+            </td>
+            <td>${station.governorate}</td>
+            <td>${station.address}</td>
+            <td>
+                ${station.verified ? 
+                    '<span style="color: #2c7a5e; font-weight: bold;">✓ موثوقة</span>' : 
+                    '<span style="color: #dc3545;">غير موثوقة</span>'}
+            </td>
+            <td>
+                <div class="action-buttons">
+                    <button class="action-btn edit-btn" onclick="editStation('${station.id}')">
+                        <i class="fas fa-edit"></i> تعديل
+                    </button>
+                    <button class="action-btn delete-btn-table" onclick="deleteStation('${station.id}')">
+                        <i class="fas fa-trash"></i> حذف
+                    </button>
+                </div>
+            </td>
+        `;
         
-        // إضافة محطة جديدة أو تحديثها
-        document.getElementById('addStationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            showAlert('جاري الإضافة...', 'info');
-            
-            const stationName = document.getElementById('stationName').value.trim();
-            const governorate = document.getElementById('governorate').value;
-            const address = document.getElementById('address').value.trim();
-            const latitude = document.getElementById('latitude').value;
-            const longitude = document.getElementById('longitude').value;
-            const verifiedStatus = document.getElementById('verifiedStatus').value;
-            
-            if (!stationName || !governorate || !address || !latitude || !longitude) {
-                showAlert('يرجى ملء جميع الحقول المطلوبة!', 'danger');
-                return;
-            }
-            
-            const lat = parseFloat(latitude);
-            const lng = parseFloat(longitude);
-            
-            if (isNaN(lat) || isNaN(lng)) {
-                showAlert('يرجى إدخال إحداثيات صحيحة!', 'danger');
-                return;
-            }
-            
-            if (lat < 21.0 || lat > 31.8 || lng < 24.0 || lng > 36.9) {
-                if (!confirm('الإحداثيات خارج نطاق مصر تقريباً. هل تريد المتابعة؟')) {
-                    return;
-                }
-            }
-            
-            const stationData = {
-                name: stationName,
-                governorate: governorate,
-                address: address,
-                lat: lat,
-                lng: lng,
-                verified: verifiedStatus
-            };
-            
-            if (editingStationId) {
-                await updateStation(editingStationId, stationData);
-            } else {
-                await addNewStation(stationData);
-            }
-        });
-        
-        // حذف جميع المحطات
-        document.getElementById('clearAllBtn').addEventListener('click', clearAllStations);
-        
-        // تصدير البيانات
-        document.getElementById('exportBtn').addEventListener('click', exportData);
-        
-        // استيراد البيانات
-        document.getElementById('importBtn').addEventListener('click', importData);
-        
-        // تسجيل الخروج
-        document.getElementById('logoutBtn').addEventListener('click', logout);
-        
-        // إضافة زر فحص Firebase بعد تأخير
-        setTimeout(() => {
-            addFirebaseTestButton();
-        }, 1000);
-        
-        // إظهار رسالة ترحيب
-        setTimeout(() => {
-            showAlert('مرحباً بك في لوحة تحكم CleanFuel!', 'success');
-        }, 1500);
+        tableBody.appendChild(tableRow);
     });
+}
+
+function showAlert(message, type = 'success') {
+    const alert = document.getElementById('alert');
+    alert.textContent = message;
+    alert.className = `alert alert-${type}`;
+    alert.style.display = 'block';
+    
+    setTimeout(() => {
+        alert.style.display = 'none';
+    }, 5000);
+}
+
+async function addNewStation(stationData) {
+    try {
+        stationData.verified = stationData.verified === 'true' || stationData.verified === true;
+        stationData.addedDate = new Date().toISOString();
+        stationData.googleMapsLink = `https://maps.google.com/?q=${stationData.lat},${stationData.lng}`;
+        
+        const docRef = await db.collection('stations').add(stationData);
+        
+        await loadStationsFromFirebase();
+        document.getElementById('addStationForm').reset();
+        
+        showAlert(`تم إضافة محطة الوقود "${stationData.name}" بنجاح!`, 'success');
+        
+        return docRef.id;
+    } catch (error) {
+        console.error('خطأ في إضافة المحطة:', error);
+        showAlert(`حدث خطأ في إضافة المحطة: ${error.message}`, 'danger');
+        return null;
+    }
+}
+
+async function updateStation(stationId, stationData) {
+    try {
+        stationData.verified = stationData.verified === 'true' || stationData.verified === true;
+        stationData.googleMapsLink = `https://maps.google.com/?q=${stationData.lat},${stationData.lng}`;
+        
+        await db.collection('stations').doc(stationId).update(stationData);
+        await loadStationsFromFirebase();
+        
+        document.getElementById('addStationForm').reset();
+        editingStationId = null;
+        
+        showAlert(`تم تحديث محطة الوقود "${stationData.name}" بنجاح!`, 'success');
+        
+        const cancelBtn = document.querySelector('#addStationForm .cancel-edit-btn');
+        if (cancelBtn) cancelBtn.remove();
+        
+        const submitBtn = document.querySelector('#addStationForm button[type="submit"]');
+        submitBtn.innerHTML = '<i class="fas fa-plus-circle"></i> إضافة محطة الوقود';
+        
+    } catch (error) {
+        console.error('خطأ في تحديث المحطة:', error);
+        showAlert('حدث خطأ في تحديث المحطة', 'danger');
+    }
+}
+
+async function deleteStation(stationId) {
+    if (confirm('هل أنت متأكد من حذف هذه المحطة؟')) {
+        try {
+            const station = stations.find(s => s.id === stationId);
+            const stationName = station ? station.name : 'المحطة';
+            
+            await db.collection('stations').doc(stationId).delete();
+            await loadStationsFromFirebase();
+            
+            showAlert(`تم حذف محطة الوقود "${stationName}" بنجاح`, 'success');
+        } catch (error) {
+            console.error('خطأ في حذف المحطة:', error);
+            showAlert('حدث خطأ في حذف المحطة', 'danger');
+        }
+    }
+}
+
+async function clearAllStations() {
+    if (stations.length === 0) {
+        showAlert('لا توجد محطات لحذفها', 'danger');
+        return;
+    }
+    
+    if (confirm('هل أنت متأكد من حذف جميع المحطات؟ هذا الإجراء لا يمكن التراجع عنه.')) {
+        try {
+            const batch = db.batch();
+            stations.forEach(station => {
+                batch.delete(db.collection('stations').doc(station.id));
+            });
+            
+            await batch.commit();
+            await loadStationsFromFirebase();
+            
+            showAlert('تم حذف جميع المحطات بنجاح', 'success');
+        } catch (error) {
+            console.error('خطأ في حذف جميع المحطات:', error);
+            showAlert('حدث خطأ في حذف جميع المحطات', 'danger');
+        }
+    }
+}
+
+function editStation(stationId) {
+    const station = stations.find(s => s.id === stationId);
+    if (!station) return;
+    
+    editingStationId = stationId;
+    
+    document.getElementById('stationName').value = station.name;
+    document.getElementById('governorate').value = station.governorate;
+    document.getElementById('address').value = station.address;
+    document.getElementById('latitude').value = station.lat;
+    document.getElementById('longitude').value = station.lng;
+    document.getElementById('verifiedStatus').value = station.verified.toString();
+    
+    const submitBtn = document.querySelector('#addStationForm button[type="submit"]');
+    submitBtn.innerHTML = '<i class="fas fa-save"></i> تحديث المحطة';
+    
+    let cancelBtn = document.querySelector('#addStationForm .cancel-edit-btn');
+    if (!cancelBtn) {
+        cancelBtn = document.createElement('button');
+        cancelBtn.type = 'button';
+        cancelBtn.className = 'btn btn-danger cancel-edit-btn';
+        cancelBtn.innerHTML = '<i class="fas fa-times"></i> إلغاء التعديل';
+        cancelBtn.style.marginRight = '10px';
+        
+        cancelBtn.onclick = function() {
+            document.getElementById('addStationForm').reset();
+            editingStationId = null;
+            submitBtn.innerHTML = '<i class="fas fa-plus-circle"></i> إضافة محطة الوقود';
+            cancelBtn.remove();
+            showAlert('تم إلغاء التعديل', 'info');
+        };
+        
+        const formButtons = document.querySelector('.form-buttons');
+        formButtons.insertBefore(cancelBtn, submitBtn);
+    }
+    
+    showAlert(`جاري تعديل محطة الوقود "${station.name}"`, 'info');
+}
+
+function exportData() {
+    const dataStr = JSON.stringify(stations, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    
+    const exportFileDefaultName = 'cleanfuel-stations-' + new Date().toISOString().split('T')[0] + '.json';
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    
+    showAlert('تم تصدير البيانات بنجاح', 'success');
+}
+
+async function importData() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    
+    input.onchange = async function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            try {
+                const importedStations = JSON.parse(e.target.result);
+                
+                if (!Array.isArray(importedStations)) {
+                    throw new Error('ملف غير صالح');
+                }
+                
+                if (confirm(`سيتم استيراد ${importedStations.length} محطة. هل تريد المتابعة؟`)) {
+                    try {
+                        const batchDelete = db.batch();
+                        stations.forEach(station => {
+                            batchDelete.delete(db.collection('stations').doc(station.id));
+                        });
+                        await batchDelete.commit();
+                        
+                        const batchAdd = db.batch();
+                        importedStations.forEach(station => {
+                            const docRef = db.collection('stations').doc();
+                            batchAdd.set(docRef, station);
+                        });
+                        await batchAdd.commit();
+                        
+                        await loadStationsFromFirebase();
+                        
+                        showAlert(`تم استيراد ${importedStations.length} محطة بنجاح`, 'success');
+                    } catch (error) {
+                        console.error('خطأ في استيراد البيانات:', error);
+                        showAlert('حدث خطأ في استيراد البيانات', 'danger');
+                    }
+                }
+            } catch (error) {
+                showAlert('خطأ في قراءة الملف. تأكد من أن الملف صالح', 'danger');
+            }
+        };
+        
+        reader.readAsText(file);
+    };
+    
+    input.click();
+}
+
+function logout() {
+    localStorage.removeItem('cleanfuel_admin_logged_in');
+    window.location.href = 'login.html';
+}
+
+function getCurrentLocation() {
+    if (!navigator.geolocation) {
+        showAlert('متصفحك لا يدعم تحديد الموقع', 'danger');
+        return;
+    }
+    
+    showAlert('جاري تحديد موقعك...', 'info');
+    
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            
+            document.getElementById('latitude').value = lat.toFixed(6);
+            document.getElementById('longitude').value = lng.toFixed(6);
+            
+            showAlert(`تم تحديد موقعك: ${lat.toFixed(6)}, ${lng.toFixed(6)}`, 'success');
+        },
+        (error) => {
+            let message = 'حدث خطأ في تحديد الموقع';
+            if (error.code === error.PERMISSION_DENIED) {
+                message = 'تم رفض إذن الوصول للموقع';
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+                message = 'معلومات الموقع غير متاحة';
+            } else if (error.code === error.TIMEOUT) {
+                message = 'انتهت مهلة طلب الموقع';
+            }
+            showAlert(message, 'danger');
+        }
+    );
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('cleanfuel_admin_logged_in');
+    if (!isLoggedIn || isLoggedIn !== 'true') {
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    if (initializeFirebase()) {
+        loadStationsFromFirebase();
+    }
+    
+    document.getElementById('addStationForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        showAlert('جاري الإضافة...', 'info');
+        
+        const stationName = document.getElementById('stationName').value.trim();
+        const governorate = document.getElementById('governorate').value;
+        const address = document.getElementById('address').value.trim();
+        const latitude = document.getElementById('latitude').value;
+        const longitude = document.getElementById('longitude').value;
+        const verifiedStatus = document.getElementById('verifiedStatus').value;
+        
+        if (!stationName || !governorate || !address || !latitude || !longitude) {
+            showAlert('يرجى ملء جميع الحقول المطلوبة!', 'danger');
+            return;
+        }
+        
+        const lat = parseFloat(latitude);
+        const lng = parseFloat(longitude);
+        
+        if (isNaN(lat) || isNaN(lng)) {
+            showAlert('يرجى إدخال إحداثيات صحيحة!', 'danger');
+            return;
+        }
+        
+        if (lat < 21.0 || lat > 31.8 || lng < 24.0 || lng > 36.9) {
+            if (!confirm('الإحداثيات خارج نطاق مصر تقريباً. هل تريد المتابعة؟')) {
+                return;
+            }
+        }
+        
+        const stationData = {
+            name: stationName,
+            governorate: governorate,
+            address: address,
+            lat: lat,
+            lng: lng,
+            verified: verifiedStatus
+        };
+        
+        if (editingStationId) {
+            await updateStation(editingStationId, stationData);
+        } else {
+            await addNewStation(stationData);
+        }
+    });
+    
+    document.getElementById('clearAllBtn').addEventListener('click', clearAllStations);
+    
+    document.getElementById('exportBtn').addEventListener('click', exportData);
+    
+    document.getElementById('importBtn').addEventListener('click', importData);
+    
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+    
+    setTimeout(() => {
+        showAlert('مرحباً بك في لوحة تحكم CleanFuel!', 'success');
+    }, 1500);
+});
 </script>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GA_MEASUREMENT_ID');
 </script>
 </body>
 </html>
